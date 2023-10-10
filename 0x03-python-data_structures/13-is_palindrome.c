@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include "lists.h"
 
 /**
@@ -10,35 +9,50 @@
 
 int is_palindrome(listint_t **head)
 {
-	int size, *list, i, e;
-	listint_t *temp;
+	int size, i, rev;
+	listint_t *temp, *rev_temp;
 
 	size = _len(head);
-	e = size - 1;
+	rev = size - 1;
 	temp = *head;
 	if (size > 0)
 	{
-		list = malloc(sizeof(int) * size);
-		if (list == NULL)
-			exit(1);
+		rev_temp = rev_list(head);
 
-		for (i = 0; temp; i++)
+		for (i = 0; i < rev; i++)
 		{
-			list[i] = temp->n;
-			temp = temp->next;
-		}
-
-		for (i = 0; i < e; i++)
-		{
-			if (list[i] != list[e--])
-			{
-				free(list);
+			if (temp->n != rev_temp->n)
 				return (0);
-			}
+
+			temp = temp->next;
+			rev_temp = rev_temp->next;
+			rev--;
 		}
-		free(list);
 	}
 	return (1);
+}
+
+/**
+ * rev_list - reverse the order of a singly linked list
+ * @head: holds the address of a pointer to the first node
+ *
+ * Return: the new list
+ */
+
+listint_t *rev_list(listint_t **head)
+{
+	listint_t *temp = *head, *prev = NULL, *next;
+
+	while (temp)
+	{
+		next = temp->next;
+		temp->next = prev;
+		prev = temp;
+		temp = next;
+	}
+
+	temp = prev;
+	return (temp);
 }
 
 /**
