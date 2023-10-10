@@ -10,25 +10,39 @@
 
 int is_palindrome(listint_t **head)
 {
-	int size, i, rev;
-	listint_t *temp, *rev_temp;
+	int size, i, e, rev;
+	listint_t *temp = *head, *rev_temp, *keep;
 
-	size = _len(head);
+	size = _len(&temp);
 	rev = size - 1;
 	temp = *head;
 	if (size > 0)
 	{
-		rev_temp = rev_list(head);
+		if (size % 2 == 0)
+			e = size / 2;
+		else
+			e = (size / 2) + 1;
+
+		for (i = 0; i < e; i++)
+			temp = temp->next;
+
+		rev_temp = rev_list(&temp);
+		keep = rev_temp;
+		temp = *head;
 
 		for (i = 0; i < rev; i++)
 		{
 			if (temp->n != rev_temp->n)
+			{
+				rev_list(&keep);
 				return (0);
+			}
 
 			temp = temp->next;
 			rev_temp = rev_temp->next;
 			rev--;
 		}
+		rev_list(&keep);
 	}
 	return (1);
 }
