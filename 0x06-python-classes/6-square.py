@@ -37,10 +37,8 @@ class Square:
         """modifies the content of position."""
         if (isinstance(position, tuple) and
                 len(position) == 2 and
-                isinstance(position[0], int) and
-                isinstance(position[1], int) and
-                position[0] >= 0 and
-                position[1] >= 0):
+                all(isinstance(num, int) for num in position) and
+                all(num >= 0 for num in position)):
             self.__position = position
         else:
             raise TypeError('position must be a tuple of 2 positive integers')
