@@ -33,13 +33,13 @@ class Square:
         return self.__position
 
     @position.setter
-    def position(self, position):
+    def position(self, value):
         """modifies the content of position."""
-        if (isinstance(position, tuple) and
-                len(position) == 2 and
-                all(isinstance(num, int) for num in position) and
-                all(num >= 0 for num in position)):
-            self.__position = position
+        if (isinstance(value, tuple) and
+                len(value) == 2 and
+                all(isinstance(num, int) for num in value) and
+                all(num >= 0 for num in value)):
+            self.__position = value
         else:
             raise TypeError('position must be a tuple of 2 positive integers')
 
