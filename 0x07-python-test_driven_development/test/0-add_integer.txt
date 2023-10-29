@@ -1,0 +1,37 @@
+========
+How to use 0-add_integer.py
+========
+
+Numbers
+=======
+add_integer() returns the addition of its arguments
+For Integers arguments it returns an integer:
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(5, 6)
+11
+
+>>> add_integer(2)
+100
+
+For Floating point arguments it returns an integer:
+>>> add_integer(5.0, 8)
+13
+
+>>> add_integer(6, 6.73)
+12
+
+>>> add_integer(5.4, 6.8)
+11
+
+Raises a TypeError exception if the arguments are not floats or integers:
+>>> add_integer(None)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer("bug")
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(56, "123")
+Traceback (most recent call last):
+TypeError: b must be an integer
