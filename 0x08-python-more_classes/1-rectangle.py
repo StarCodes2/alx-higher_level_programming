@@ -6,8 +6,8 @@ class Rectangle:
     """Class defunes two private instance attribute."""
     def __init__(self, width=0, height=0):
         """Intialized with optional width and height."""
-        self.__height = height
         self.__width = width
+        self.__height = height
 
     @property
     def height(self):
