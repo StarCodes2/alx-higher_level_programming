@@ -1,0 +1,25 @@
+========================
+How to use 3-say_my_name.py
+========================
+
+The say_my_name() takes two strings first_name and last_name and prints My name is <first name> <last name>
+
+Works with only string arguments
+================================
+Single string argument:
+>>> say = __import__('3-say_my_name').say_my_name
+>>> say('Anu')
+My name is Anu 
+
+Two string arguments:
+>>> say('Ezekiel', 'Ogunewu')
+My name is Ezekiel Ogunewu
+
+Errors:
+>>> say(7, 'Ogunewu')
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say('Ezekiel', 21.7)
+Traceback (most recent call last):
+TypeError: last_name must be a string

@@ -1,0 +1,39 @@
+====================
+How to use 2-matrix_divided.py
+====================
+
+matrix_divided() takes a list of lists of integers and returns a new list of lists containing the elements of the old list divided by the value of div.
+
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> list1 = [3, 5, 6, 8]
+>>> matrix_divided(list1, 5)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> list1 = [[4, 5.6, 6, 7.8], [4, 6, 8, 3.0], [2, 3, 4]]
+>>> matrix_divided(list1, 3)
+Traceback (most recent call last):
+TypeError: Each row of the matrix must have the same size
+
+>>> list1 = [[6, 6, 8.9], [8, 6.0, 'str']]
+>>> matrix_divided(list1, 6)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> list1 = [[6, 4, 8.0, 2], [10, 12, 14.0, 20]]
+>>> matrix_divided(list1, 0)
+Traceback: (most recent call last):
+ZeroDivisionError: division by zero
+
+>>> print(matrix_divided(list1, 2))
+[[3.0, 2.0, 4.0, 1.0], [5.0, 6.0, 7.0, 10.0]]
+
+>>> matrix_divided(list1, '2')
+Traceback: (most recent call last):
+TypeError: div must be a number
+
+>>> list2 = matrix_divided(list1, 2)
+>>> list1 is list2
+False
+>>> list1 == list2
+False
