@@ -53,3 +53,19 @@ class Square(Rectangle):
                     self.x = arg
                 elif (key == 'y'):
                     self.y = arg
+
+    def to_dictionary(self):
+        """Returns the dictionary representation of a Square."""
+        s_rep = {
+                'id': self.id,
+                'size': self.size,
+                'x': self.x,
+                'y': self.y
+                }
+
+        return s_rep
+
+    def __str__(self):
+        """Overloads the __str__() method inherited from Rectangle."""
+        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
+                                                 self.size)
