@@ -92,6 +92,54 @@ class Rectangle(Base):
 
             print()
 
+    def update(self, *args, **kwarg):
+        """Assigns an argument to each attribute."""
+        if (args and len(args) != 0):
+            i = 0
+            for arg in args:
+                if (i == 0):
+                    if (arg is None):
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = arg
+                elif (i == 1):
+                    self.width = arg
+                elif (i == 2):
+                    self.height = arg
+                elif (i == 3):
+                    self.x = arg
+                elif (i == 4):
+                    self.y = arg
+                a += 1
+
+        elif (kwarg and len(kwarg) != 0):
+            for key, arg in kwarg.items():
+                if (key == 'id'):
+                    if (arg is None):
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = arg
+                elif (key == 'width'):
+                    self.width = arg
+                elif (key == 'height'):
+                    self.height = arg
+                elif (key == 'x'):
+                    self.x = arg
+                elif (key == 'y'):
+                    self.y = arg
+
+    def to_dictionary(self):
+        """Returns a dictionary representation of an instance of Rectangle."""
+        d_rep = {
+                'id': self.id,
+                'width': self.width,
+                'height': self.height,
+                'x': self.x,
+                'y': self.y
+                }
+
+        return d_rep
+
     def __str__(self):
         """Returns a string with the instance class and attributes values."""
         line = "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,

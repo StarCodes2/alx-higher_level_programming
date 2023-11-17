@@ -97,3 +97,6 @@ class TestRectangle(unittest.TestCase):
             b.display()
             output = mock_stdout.getvalue()
             self.assertEqual(output, pri)
+
+    def test_7update(self):
+        """Tests the update method."""
