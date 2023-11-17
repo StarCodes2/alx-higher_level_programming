@@ -8,10 +8,10 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initialise the instance attributes and base class public
         attribute."""
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
         super().__init__(id)
 
     @property
@@ -76,25 +76,24 @@ class Rectangle(Base):
 
     def area(self):
         """Returns the area of a rectangle."""
-        return (self.__width * self.__height)
+        return (self.width * self.height)
 
     def display(self):
         """Prints a rectangle in stdout."""
-        for i in range(self.__height):
-            for y in range(self.__y):
-                print()
+        for y in range(self.y):
+            print()
 
-            for x in range(self.__x):
+        for i in range(self.height):
+            for x in range(self.x):
                 print(end=" ")
 
-            for j in range(self.__width):
+            for j in range(self.width):
                 print("#", end="")
 
             print()
 
     def __str__(self):
         """Returns a string with the instance class and attributes values."""
-        line = "[{}] ({}) {}/{} - {}/{}".format(self.__class__, self.id,
-                                                self.__x, self.__y,
-                                                self.__width, self.__height)
+        line = "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,
+                                                       self.width, self.height)
         return line
