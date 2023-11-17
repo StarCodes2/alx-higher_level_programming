@@ -27,3 +27,39 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(b.id, 6)
         self.assertEqual(b.x, 5)
         self.assertEqual(b.y, 3)
+
+    def test_raises(self):
+        """Exceptions are raised when an invalid input is passed to the
+        attributes."""
+        values = ["20", 10, 5, 3, 89]
+        self.assertRaises(TypeError, Rectangle, *values, msg="width must be "
+                          "an integer")
+        values = [20, "10", 5, 3, 89]
+        self.assertRaises(TypeError, Rectangle, *values, msg="height must be "
+                          "an integer")
+
+        values = [20, 10, "5", 3, 89]
+        self.assertRaises(TypeError, Rectangle, *values, msg="x must be an "
+                          "integer")
+        values = [20, 10, 5, "3", 89]
+        self.assertRaises(TypeError, Rectangle, *values, msg="y must be an "
+                          "integer")
+
+        values = [0, 10]
+        self.assertRaises(ValueError, Rectangle, *values, msg="width must be"
+                          " > 0")
+        values = [20, 0]
+        self.assertRaises(ValueError, Rectangle, *values, msg="height must be"
+                          " > 0")
+
+        values = [-20, 2]
+        self.assertRaises(ValueError, Rectangle, *values, msg="width must be "
+                          "> 0")
+        values = [20, -2]
+        self.assertRaises(ValueError, Rectangle, *values, msg="height must be "
+                          "> 0")
+
+        values = [20, 10, -5]
+        self.assertRaises(ValueError, Rectangle, *value, msg="x must be >= 0")
+        values = [20, 10, 5, -3]
+        self.assertRaises(ValueError, Rectangle, *value, msg="y must be >= 0")
