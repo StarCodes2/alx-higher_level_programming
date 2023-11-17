@@ -110,7 +110,7 @@ class Rectangle(Base):
                     self.x = arg
                 elif (i == 4):
                     self.y = arg
-                a += 1
+                i += 1
 
         elif (kwarg and len(kwarg) != 0):
             for key, arg in kwarg.items():
