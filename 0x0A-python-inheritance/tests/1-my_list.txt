@@ -7,3 +7,33 @@ How it works
 >>> a = mylist()
 >>> print(a)
 []
+
+>>> isinstance(a, mylist)
+True
+
+>>> issubclass(a.__class__, list)
+True
+
+>>> a.print_sorted()
+[]
+
+>>> a.append(1)
+>>> print(a)
+[1]
+
+>>> str(a)
+'[1]'
+
+>>> a.append(2)
+>>> a.append(3)
+>>> a.print_sorted()
+[1, 2, 3]
+
+>>> a[0] = 3
+>>> a[2] = 1
+>>> a.print_sorted()
+[1, 2, 3]
+
+>>> a[1] = -1
+>>> a.print_sorted()
+[-1, 1, 3]
