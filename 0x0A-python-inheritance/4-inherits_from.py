@@ -6,7 +6,7 @@ a specific class or a class derived from it."""
 def inherits_from(obj, a_class):
     """Check if an object an instance of a given class or a class derived
     from it."""
-    if isinstance(type(obj), a_class):
+    if issubclass(type(obj), a_class) and type(obj) != a_class:
         return True
     else:
         return False
