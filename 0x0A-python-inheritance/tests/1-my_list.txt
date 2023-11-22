@@ -3,3 +3,7 @@ MyList inherit from list so it can be used to perform all list operations
 How it works
 ================÷=
 
+>>> mylist = __import__('1-my_list').MyList
+>>> a = mylist()
+>>> print(a)
+[]
