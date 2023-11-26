@@ -5,6 +5,7 @@ from models.rectangle import Rectangle
 import unittest
 from unittest.mock import patch
 import io
+import os
 
 
 class TestRectangle(unittest.TestCase):
@@ -98,5 +99,98 @@ class TestRectangle(unittest.TestCase):
             output = mock_stdout.getvalue()
             self.assertEqual(output, pri)
 
-    def test_7update(self):
+    def test_7to_dictionary(self):
+        """Tests the to_dictionary method in the rectangle class."""
+        b = Rectangle(5, 6, 0, 0, 201)
+        sample = {'id': 201, 'width': 5, 'height': 6, 'x': 0, 'y': 0}
+        self.assertEqual(b.to_dictionary(), sample)
+
+    def test_8update(self):
         """Tests the update method."""
+        b = Rectangle(4, 8, 0, 1, 202)
+
+        b.update(203)
+        sample = "[Rectangle] (203) 0/1 - 4/8"
+        self.assertEqual(str(b), sample)
+        sample = "[Rectangle] (204) 0/1 - 4/8"
+        b.update(**{'id': 204})
+        self.assertEqual(str(b), sample)
+
+        b.update(203, 5)
+        sample = "[Rectangle] (203) 0/1 - 5/8"
+        self.assertEqual(str(b), sample)
+        sample = "[Rectangle] (204) 0/1 - 6/8"
+        b.update(id=204, width=6)
+        self.assertEqual(str(b), sample)
+
+        b.update(203, 5, 10)
+        sample = "[Rectangle] (203) 0/1 - 5/10"
+        self.assertEqual(str(b), sample)
+        sample = "[Rectangle] (204) 0/1 - 6/12"
+        b.update(id=204, width=6, height=12)
+        self.assertEqual(str(b), sample)
+
+        b.update(203, 5, 10, 2)
+        sample = "[Rectangle] (203) 2/1 - 5/10"
+        self.assertEqual(str(b), sample)
+        sample = "[Rectangle] (204) 3/1 - 6/12"
+        b.update(id=204, width=6, height=12, x=3)
+        self.assertEqual(str(b), sample)
+
+        b.update(203, 5, 10, 2, 3)
+        sample = "[Rectangle] (203) 2/3 - 5/10"
+        self.assertEqual(str(b), sample)
+        sample = "[Rectangle] (204) 3/4 - 6/12"
+        b.update(id=204, width=6, height=12, x=3, y=4)
+        self.assertEqual(str(b), sample)
+
+    def test_9create(self):
+        """Tests the class method inherited from the Base class."""
+        ins = Rectangle.create(id=30)
+        sample = "[Rectangle] (30) 0/0 - 1/1"
+        self.assertEqual(str(ins), sample)
+
+        ins = Rectangle.create(id=30, width=2)
+        sample = "[Rectangle] (30) 0/0 - 2/1"
+        self.assertEqual(str(ins), sample)
+
+        ins = Rectangle.create(id=30, width=2, height=4)
+        sample = "[Rectangle] (30) 0/0 - 2/4"
+        self.assertEqual(str(ins), sample)
+
+        ins = Rectangle.create(id=30, width=2, height=4, x=1)
+        sample = "[Rectangle] (30) 1/0 - 2/4"
+        self.assertEqual(str(ins), sample)
+
+        ins = Rectangle.create(id=30, width=2, height=4, x=1, y=2)
+        sample = "[Rectangle] (30) 1/2 - 2/4"
+        self.assertEqual(str(ins), sample)
+
+    def test_90save_to_file(self):
+        """Test the class method 'save_to_file' inherited from base class.
+        Also tests the 'load_from_file' method."""
+        list_obj = Rectangle.load_from_file()
+        self.assertTrue(list_obj == [])
+
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as jf:
+            text = jf.read()
+        self.assertEqual(text, "[]")
+
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r") as jf:
+            text = jf.read()
+        self.assertEqual(text, "[]")
+
+        text = Rectangle.load_from_file()
+        self.assertEqual(text, [])
+
+        Rectangle.save_to_file([Rectangle(2, 3, 0, 0, 205)])
+        with open("Rectangle.json", "r") as jf:
+            text = jf.read()
+        self.assertEqual(text, '[{"id": 205,'
+                               ' "width": 2, "height": 3, "x": 0, "y": 0}]')
+
+        list_obj = Rectangle.load_from_file()
+        self.assertEqual(list_obj[0].id, 205)
+        os.remove("Rectangle.json")

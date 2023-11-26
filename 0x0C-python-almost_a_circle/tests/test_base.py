@@ -21,3 +21,25 @@ class TestBase(unittest.TestCase):
         a = Base()
         b = Base(12)
         self.assertEqual(type(a), type(b))
+
+    def test_to_json(self):
+        """Tests the to_json_string method."""
+        jlist = Base.to_json_string(None)
+        self.assertEqual(jlist, '[]')
+
+        jlist = Base.to_json_string([])
+        self.assertEqual(jlist, '[]')
+
+        jlist = Base.to_json_string([{'id': 20}])
+        self.assertEqual(jlist, '[{"id": 20}]')
+
+    def test_from_json(self):
+        """Tests the from_json_string method."""
+        lists = Base.from_json_string(None)
+        self.assertEqual(lists, [])
+
+        lists = Base.from_json_string('[]')
+        self.assertEqual(lists, [])
+
+        lists = Base.from_json_string('[{"id": 50}]')
+        self.assertEqual(lists, [{'id': 50}])
