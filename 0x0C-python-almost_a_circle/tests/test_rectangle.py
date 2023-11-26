@@ -5,7 +5,6 @@ from models.rectangle import Rectangle
 import unittest
 from unittest.mock import patch
 import io
-import os
 
 
 class TestRectangle(unittest.TestCase):
@@ -193,4 +192,3 @@ class TestRectangle(unittest.TestCase):
 
         list_obj = Rectangle.load_from_file()
         self.assertEqual(list_obj[0].id, 205)
-        os.remove("Rectangle.json")
