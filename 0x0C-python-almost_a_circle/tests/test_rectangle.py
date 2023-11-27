@@ -195,3 +195,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(list_obj[0].id, 205)
 
         os.remove("Rectangle.json")
+
+if __name__ == "__main__":
+    unittest.main()

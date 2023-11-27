@@ -43,3 +43,6 @@ class TestBase(unittest.TestCase):
 
         lists = Base.from_json_string('[{"id": 50}]')
         self.assertEqual(lists, [{'id': 50}])
+
+if __name__ == "__main__":
+    unittest.main()

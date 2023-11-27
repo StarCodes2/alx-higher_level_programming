@@ -181,3 +181,6 @@ class TestSquare(unittest.TestCase):
 
         """Deletes the json file created by this tests:"""
         os.remove(file_name)
+
+if __name__ == "__main__":
+    unittest.main()
