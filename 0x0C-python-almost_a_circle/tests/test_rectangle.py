@@ -31,7 +31,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(b.x, 5)
         self.assertEqual(b.y, 3)
 
-    def test_3raises(self):
+    def test_raises(self):
         """Exceptions are raised when an invalid input is passed to the
         attributes."""
         with self.assertRaises(TypeError, msg="width must be an integer"):
@@ -59,20 +59,20 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError, msg="y must be >= 0"):
             Rectangle(20, 10, 5, -3)
 
-    def test_4area(self):
+    def test_area(self):
         """Checks if the area returned is correct."""
         d = Rectangle(5, 3)
         self.assertEqual(d.area(), 15)
         d.width = 10
         self.assertEqual(d.area(), 30)
 
-    def test_5str(self):
+    def test_str(self):
         """Checks if the __str__ method returns the correct output."""
         b = Rectangle(5, 3, 2, 2, 98)
         ret = "[Rectangle] (98) 2/2 - 5/3"
         self.assertEqual(str(b), ret)
 
-    def test_6display(self):
+    def test_display(self):
         """Checks if the display method prints the correct output."""
         pri = "##\n##\n##\n"
         with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
@@ -99,13 +99,13 @@ class TestRectangle(unittest.TestCase):
             output = mock_stdout.getvalue()
             self.assertEqual(output, pri)
 
-    def test_7to_dictionary(self):
+    def test_to_dictionary(self):
         """Tests the to_dictionary method in the rectangle class."""
         b = Rectangle(5, 6, 0, 0, 201)
         sample = {'id': 201, 'width': 5, 'height': 6, 'x': 0, 'y': 0}
         self.assertEqual(b.to_dictionary(), sample)
 
-    def test_8update(self):
+    def test_update(self):
         """Tests the update method."""
         b = Rectangle(4, 8, 0, 1, 202)
 
@@ -144,7 +144,7 @@ class TestRectangle(unittest.TestCase):
         b.update(id=204, width=6, height=12, x=3, y=4)
         self.assertEqual(str(b), sample)
 
-    def test_9create(self):
+    def test_create(self):
         """Tests the class method inherited from the Base class."""
         ins = Rectangle.create(id=30)
         sample = "[Rectangle] (30) 0/0 - 1/1"
@@ -166,7 +166,7 @@ class TestRectangle(unittest.TestCase):
         sample = "[Rectangle] (30) 1/2 - 2/4"
         self.assertEqual(str(ins), sample)
 
-    def test_90save_to_file(self):
+    def test_save_to_file(self):
         """Test the class method 'save_to_file' inherited from base class.
         Also tests the 'load_from_file' method."""
         list_obj = Rectangle.load_from_file()

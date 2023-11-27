@@ -31,7 +31,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(b.x, 5)
         self.assertEqual(b.y, 3)
 
-    def test_93raises(self):
+    def test_raises(self):
         """Exceptions are raised when an invalid input is passed to the
         attributes."""
         with self.assertRaises(TypeError, msg="size must be an integer"):
@@ -51,20 +51,20 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(ValueError, msg="y must be >= 0"):
             Square(20, 5, -3)
 
-    def test_94area(self):
+    def test_area(self):
         """Checks if the area returned is correct."""
         d = Square(5)
         self.assertEqual(d.area(), 25)
         d.size = 10
         self.assertEqual(d.area(), 100)
 
-    def test_95str(self):
+    def test_str(self):
         """Checks if the __str__ method returns the correct output."""
         b = Square(5, 2, 2, 98)
         ret = "[Square] (98) 2/2 - 5"
         self.assertEqual(str(b), ret)
 
-    def test_96display(self):
+    def test_display(self):
         """Checks if the display method prints the correct output."""
         pri = "##\n##\n"
         with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
@@ -91,13 +91,13 @@ class TestSquare(unittest.TestCase):
             output = mock_stdout.getvalue()
             self.assertEqual(output, pri)
 
-    def test_97to_dictionary(self):
+    def test_to_dictionary(self):
         """Tests the to_dictionary method in the square class."""
         b = Square(5, 0, 0, 301)
         sample = {'id': 301, 'size': 5, 'x': 0, 'y': 0}
         self.assertEqual(b.to_dictionary(), sample)
 
-    def test_98update(self):
+    def test_update(self):
         """Tests the update method."""
         b = Square(8, 0, 1, 302)
 
@@ -129,7 +129,7 @@ class TestSquare(unittest.TestCase):
         b.update(id=304, size=6, x=3, y=4)
         self.assertEqual(str(b), sample)
 
-    def test_99create(self):
+    def test_create(self):
         """Tests the class method inherited from the Rectangle class."""
         ins = Square.create(id=40)
         sample = "[Square] (40) 0/0 - 1"
@@ -147,7 +147,7 @@ class TestSquare(unittest.TestCase):
         sample = "[Square] (40) 1/2 - 2"
         self.assertEqual(str(ins), sample)
 
-    def test_990save_to_file(self):
+    def test_save_to_file(self):
         """Test the class method 'save_to_file' inherited from base class.
         Also tests the 'load_from_file' method."""
         file_name = "Square.json"
