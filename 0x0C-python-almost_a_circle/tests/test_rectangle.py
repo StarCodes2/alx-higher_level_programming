@@ -1,21 +1,21 @@
 #!/usr/bin/python3
 """Defines a test class to test the class Rectangle."""
-from models.base import Base
-from models.rectangle import Rectangle
+import os
+import io
 import unittest
 from unittest.mock import patch
-import io
-import os
+from models.base import Base
+from models.rectangle import Rectangle
 
 
 class TestRectangle(unittest.TestCase):
     """Define method to test the Rectangle class."""
-    def test_1inherit(self):
+    def test_inherit(self):
         """Test if Rectangle inherits from Base."""
         a = Rectangle(10, 5, 2, 5)
         self.assertIsInstance(a, Base)
 
-    def test_2properties(self):
+    def test_properties(self):
         """Tests the attributes setters and getters."""
         a = Rectangle(20, 10)
         self.assertEqual(a.x, 0)
@@ -24,10 +24,10 @@ class TestRectangle(unittest.TestCase):
 
         a.x = 5
         a.y = 3
-        b = Rectangle(20, 10, 5, 3)
+        b = Rectangle(20, 10, 5, 3, 50)
         self.assertEqual(a.x, 5)
         self.assertEqual(a.y, 3)
-        self.assertEqual(b.id, 6)
+        self.assertEqual(b.id, 50)
         self.assertEqual(b.x, 5)
         self.assertEqual(b.y, 3)
 

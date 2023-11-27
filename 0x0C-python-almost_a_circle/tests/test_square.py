@@ -8,14 +8,14 @@ import io
 import os
 
 
-class TestRectangle(unittest.TestCase):
+class TestSquare(unittest.TestCase):
     """Define method to test the Square class."""
-    def test_91inherit(self):
+    def test_inherit(self):
         """Test if Square inherits from Base."""
         a = Square(10, 2, 5)
         self.assertIsInstance(a, Rectangle)
 
-    def test_92properties(self):
+    def test_properties(self):
         """Tests the attributes setters and getters."""
         a = Square(20)
         self.assertEqual(a.x, 0)
@@ -24,10 +24,10 @@ class TestRectangle(unittest.TestCase):
 
         a.x = 5
         a.y = 3
-        b = Square(20, 5, 3)
+        b = Square(20, 5, 3, 60)
         self.assertEqual(a.x, 5)
         self.assertEqual(a.y, 3)
-        self.assertEqual(b.id, 17)
+        self.assertEqual(b.id, 60)
         self.assertEqual(b.x, 5)
         self.assertEqual(b.y, 3)
 
