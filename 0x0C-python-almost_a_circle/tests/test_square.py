@@ -64,7 +64,7 @@ class TestSquare(unittest.TestCase):
         ret = "[Square] (98) 2/2 - 5"
         self.assertEqual(str(b), ret)
 
-    def display(self):
+    def test_display(self):
         """Checks if the display method prints the correct output."""
         pri = "##\n##\n"
         with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
