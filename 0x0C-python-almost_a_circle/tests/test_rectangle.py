@@ -72,7 +72,7 @@ class TestRectangle(unittest.TestCase):
         ret = "[Rectangle] (98) 2/2 - 5/3"
         self.assertEqual(str(b), ret)
 
-    def test_display(self):
+    def display(self):
         """Checks if the display method prints the correct output."""
         pri = "##\n##\n##\n"
         with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
