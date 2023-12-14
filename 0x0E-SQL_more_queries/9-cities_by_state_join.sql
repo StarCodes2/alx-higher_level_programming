@@ -1,6 +1,6 @@
 -- Prints all cities contained in the databet
-SELECT cities_id, cities.name, state.name
+SELECT cities_id, cities.name, states.name
 from cities
-LEFT JOIN stack
-oN state_id = state.id
-ODER BY cities.id ASC;
+LEFT JOIN states
+oN state_id = states.id
+ORDER BY cities.id ASC;
