@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-"""lists all states in a database.
+"""lists all values in the states table where name matches the argument in a
+   database.
    Usage: ./1-filter_states.py <mysql username>
                                <mysql password>
                                <database name>
+                               <state name>
 """
 import MySQLdb
 from sys import argv
@@ -15,7 +17,8 @@ if __name__ == "__main__":
     cur.execute("SELECT * FROM states ORDER BY id ASC")
     rows = cur.fetchall()
     for row in rows:
-        print(row)
+        if row[1] == argv[4]:
+            print(row)
 
     cur.close()
     conn.close()

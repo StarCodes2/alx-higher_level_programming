@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-"""lists all states that sarts with the letter N in a database."""
+"""lists all states that starts with the letter N in a database.
+   Usage: ./1-filter_states.py <mysql username>
+                               <mysql password>
+                               <database name>
+"""
 import MySQLdb
 from sys import argv
 
