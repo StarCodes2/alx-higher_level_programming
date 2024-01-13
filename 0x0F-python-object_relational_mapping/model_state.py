@@ -9,7 +9,7 @@ Base = declarative_base()
 class State(Base):
     """Represents the state table for a MySQL Database
 
-    __tablename__ (str): Name of the table in the MySQL database to store states
+    __tablename__ (str): Name of the table in the MySQL database to store state
     id (sqlalchemy.Integer): State's id.
     name (sqlachemy.String): State's name.
     """
