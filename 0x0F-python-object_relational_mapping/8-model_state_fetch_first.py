@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Prints the first State object from the database hbtn_0e_6_usa.
-Usage: ./7-model_state_fetch_all.py <mysql username>
-                                    <mysql password>
-                                    <database name>
+Usage: ./8-model_state_fetch_first.py <mysql username>
+                                      <mysql password>
+                                      <database name>
 """
 from sys import argv
 from sqlalchemy import create_engine

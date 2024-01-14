@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """Prints the State object with the name passed as argument from the database
 hbtn_0e_6_usa
-Usage: ./7-model_state_fetch_all.py <mysql username>
-                                    <mysql password>
-                                    <database name>
-                                    <state name to search>
+Usage: ./10-model_state_my_get.py <mysql username>
+                                  <mysql password>
+                                  <database name>
+                                  <state name to search>
 """
 from sys import argv
 from sqlalchemy import create_engine

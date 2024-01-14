@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Lists all State objects from the database hbtn_0e_6_usa.
-Usage: ./7-model_state_fetch_all.py <mysql username>
-                                    <mysql password>
-                                    <database name>
+Usage: ./9-model_state_filter_a.py <mysql username>
+                                   <mysql password>
+                                   <database name>
 """
 from sys import argv
 from sqlalchemy import create_engine
