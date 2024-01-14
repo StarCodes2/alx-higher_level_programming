@@ -2,7 +2,9 @@
 """Defines a City model that inherits from SQLAlchemy base and links to the
    MgSQL table city."""
 from sqlalchemy import Column, Integer, ForeignKey, String
-from model_state import Base
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
 
 
 class City(Base):
