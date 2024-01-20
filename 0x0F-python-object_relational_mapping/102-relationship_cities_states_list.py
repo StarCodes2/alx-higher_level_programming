@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""Creates the State “California” with the City “San Francisco” from the
-database hbtn_0e_100_usa
+"""Lists all City objects from the database hbtn_0e_101_usa
 Usage: ./100-relationship_states_cities.py <mysql username>
                                            <mysql password>
                                            <database name>
@@ -18,6 +17,6 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    session.add(City(name="San Francisco", state=State(name="California")))
-    session.commit()
+    for city in session.query(City).order_by(City.id).all():
+        print("{}: {} -> {}".format(city.id, city.name, city.state.name))
     session.close()
