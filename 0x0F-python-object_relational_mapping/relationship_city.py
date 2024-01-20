@@ -2,8 +2,7 @@
 """Defines a City model that inherits from SQLAlchemy base and links to the
    MgSQL table city."""
 from sqlalchemy import Column, Integer, ForeignKey, String
-from relationship_state.py import State
-from sqlalchemy.ext.declarative ext import declarative_base
+from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
 
@@ -17,4 +16,4 @@ class City(Base):
     __tablename__ = "cities"
     id = Column(Integer, primary_key=True)
     name = Column(String(128), nullable=False)
-    state_id = Column(Integer, ForeignKey(State.id), nullable=False)
+    state_id = Column(Integer, ForeignKey("states.id"), nullable=False)

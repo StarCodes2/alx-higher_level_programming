@@ -8,8 +8,8 @@ Usage: ./100-relationship_states_cities.py <mysql username>
 from sys import argv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from relationship_state import State
-from rekationship_city import Base, City
+from relationship_state import Base, State
+from relationship_city import City
 
 
 if __name__ == "__main__":
