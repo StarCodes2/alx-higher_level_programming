@@ -7,3 +7,4 @@
 - **4-starwars_count.js:** Prints the number of movies where the character “Wedge Antilles” is present.
 - **5-request_store.js:** Gets the contents of a webpage and stores it in a file.
 - **6-completed_tasks.js:** Computes the number of tasks completed by user id.
+- **100-starwars_characters.js:** Prints all characters of a Star Wars movie.
