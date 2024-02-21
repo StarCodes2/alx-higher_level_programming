@@ -8,3 +8,4 @@
 - **5-request_store.js:** Gets the contents of a webpage and stores it in a file.
 - **6-completed_tasks.js:** Computes the number of tasks completed by user id.
 - **100-starwars_characters.js:** Prints all characters of a Star Wars movie.
+- **101-starwars_characters.js:** Prints all characters of a Star Wars movie in the order they appear in the list
