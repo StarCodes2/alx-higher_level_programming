@@ -9,3 +9,4 @@
 - **6-script.js:** Updates the text of the <header> element to New Header!!! when the user clicks on DIV#update_header
 - **7-script.js** Fetches the character name from this URL: https://swapi-api.alx-tools.com/api/people/5/?format=json
 - **8-script.js:** Fetches and lists the title for all movies by using this URL: https://swapi-api.alx-tools.com/api/films/?format=json
+- **9-script.js:** Fetches from https://hellosalut.stefanbohacek.dev/?lang=fr and displays the value of hello from that fetch in the HTML tag DIV#hello.
