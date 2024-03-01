@@ -16,5 +16,5 @@ $(document).ready(function () {
     if (myList.length > 0) {
       myList.empty();
     }
-  })
+  });
 });
